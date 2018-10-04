@@ -1,0 +1,29 @@
+<div class="col-4 jumbotron">
+  <div class="row">
+    <div class="search-boxes row">
+        <div class="form">
+            <input type="search" class="form-control" placeholder="From" [(ngModel)]="fromLocation">
+        </div>
+        <div class="form">
+            <input type="search" class="form-control" placeholder="To" [(ngModel)]="toLocation">
+        </div>
+
+
+    </div>
+    <div class="search-button col-1">
+      <button type="button" class="btn btn-primary" (click)="search()">Go!</button>
+    </div>
+
+
+  </div>
+  <ng-container *ngIf="results$ | async as results; else loading">
+    <div class="results">
+      <app-results [searchResults]="results"></app-results>
+    </div>
+  </ng-container>
+  <ng-template #loading>
+    <div class="loading">
+      Loading...
+    </div>
+  </ng-template>
+</div>
