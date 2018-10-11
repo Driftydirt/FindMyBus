@@ -1,4 +1,4 @@
 <h3 class="display-4 title">From {{searchResults.fromLocation}} to {{searchResults.toLocation}}</h3>
 <ng-container *ngFor="let result of searchResults.results">
-  <app-result></app-result>
+  <app-result [directions]="result.directions" [title]="result.title"></app-result>
 </ng-container>

@@ -5,5 +5,6 @@ export interface SearchResults {
 }
 
 export interface SearchResult {
+  title: string;
   directions: string[];
 }

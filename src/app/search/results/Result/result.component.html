@@ -1,3 +1,18 @@
-<ol>
-  <li *ngFor="let direction of directions">{{direction}}</li>
-</ol>
+<div class="accordion" id="accordionExample">
+  <div class="card" [class.active]="selectionChecker(title)">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button (click)="ResultsComponent.selectRoute(title)" class="btn" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                {{title}}
+          </button>
+        </h5>
+      </div>
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+          <ol>
+            <li *ngFor="let direction of directions">{{direction}}</li>
+          </ol>
+        </div>
+      </div>
+  </div>
+</div>
