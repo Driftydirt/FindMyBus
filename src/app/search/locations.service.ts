@@ -18,11 +18,9 @@ export class LocationsService {
       fromLocation,
       toLocation,
       results: [
-        { directions: [] },
-        { directions: [] },
-        { directions: [] },
-        { directions: [] },
-        { directions: [] },
+        { title: 'Bus 1', directions: ['Step 1', 'Step 2'] },
+        { title: 'Bus 2', directions: ['Step 1', 'Step 2'] },
+        { title: 'Bus 3', directions: ['Step 1', 'Step 2'] },
       ],
     };
 
