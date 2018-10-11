@@ -22,7 +22,7 @@ export class SearchComponent implements OnInit {
   }
 
   search() {
-    if(this.fromLocation === '' || this.toLocation === '') {
+    if ((this.fromLocation === undefined || this.toLocation === undefined) || (this.fromLocation === '' || this.toLocation === '')) {
       this.invalid = true;
     } else {
       this.searched = true;
