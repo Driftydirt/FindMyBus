@@ -32,7 +32,7 @@ export class LocationsService {
       );
 
     // Real implementation looks something like this:
-    // return this.http.get('https://myserver/myurl', { params: { fromLocation, toLocation }})
-    //     .map((response) => response.json());
+     return this.http.get('https://myserver/myurl', { params: { fromLocation, toLocation }})
+        .map((response) => response.json());
   }
 }
