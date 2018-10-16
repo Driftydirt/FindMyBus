@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { SearchResult } from '../../search-result.model';
 
 @Component({
   selector: 'app-result',
@@ -6,25 +7,19 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent implements OnInit {
-  @Input() public directions: string[];
-  @Input() public title: string;
-  public selectedRouteTitle: string;
-  constructor() {
-   }
+  @Input()
+  public result: SearchResult;
+  @Input()
+  public selectedRoute = false;
 
-  ngOnInit() {
-  }
+  @Output()
+  public selected = new EventEmitter<void>();
+
+  constructor() {}
+
+  ngOnInit() {}
 
   public selectRoute(title: string) {
-    this.selectedRouteTitle = title;
+    this.selected.next();
   }
-
-  public selectionChecker(title: string) {
-    if(title === this.selectedRouteTitle) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
 }
