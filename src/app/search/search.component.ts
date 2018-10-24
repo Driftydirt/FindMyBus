@@ -3,7 +3,12 @@ import { ResultsComponent } from './results/results.component';
 import { LocationsService } from './locations.service';
 import { SearchResults } from './search-result.model';
 import { Observable } from 'rxjs';
-import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
+import {
+  FormControl,
+  Validators,
+  FormGroup,
+  FormBuilder
+} from '@angular/forms';
 
 @Component({
   selector: 'app-search',
@@ -12,22 +17,32 @@ import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms'
 })
 export class SearchComponent implements OnInit {
   public fromLocation: string;
+  public fromLocationInactive: string;
   public toLocation: string;
+  public toLocationInactive: string;
   public results$: Observable<SearchResults>;
   public invalid: boolean;
   public searched: boolean;
-  constructor(private locationsService: LocationsService) { }
+  constructor(private locationsService: LocationsService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   search() {
-    if ((this.fromLocation === undefined || this.toLocation === undefined) || (this.fromLocation === '' || this.toLocation === '')) {
+    if (
+      this.fromLocationInactive === undefined ||
+      this.toLocationInactive === undefined ||
+      (this.fromLocationInactive === '' || this.toLocationInactive === '')
+    ) {
       this.invalid = true;
     } else {
+      this.fromLocation = this.fromLocationInactive;
+      this.toLocation = this.toLocationInactive;
       this.searched = true;
       this.invalid = false;
-      this.results$ = this.locationsService.search(this.fromLocation, this.toLocation);
+      this.results$ = this.locationsService.search(
+        this.fromLocation,
+        this.toLocation
+      );
     }
   }
 }
