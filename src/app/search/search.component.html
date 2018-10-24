@@ -1,14 +1,14 @@
-<div class="col-4 jumbotron">
+<div class="offset-1 jumbotron">
   <div class="row">
     <div class="search-boxes row">
- 
-          <div class="form">
-              <input type="search" class="form-control" placeholder="From" [(ngModel)]="fromLocation">
-          </div>
-          <div class="form">
-              <input type="search" class="form-control" placeholder="To" [(ngModel)]="toLocation">
-          </div>
-        </div>
+
+      <div class="form">
+        <input type="search" class="form-control" placeholder="From" [(ngModel)]="fromLocationInactive">
+      </div>
+      <div class="form">
+        <input type="search" class="form-control" placeholder="To" [(ngModel)]="toLocationInactive">
+      </div>
+    </div>
     <div class="search-button col-1">
       <button type="button" class="btn btn-primary" (click)="search()">Go!</button>
     </div>
@@ -22,7 +22,7 @@
     <ng-container *ngSwitchCase="false">
       <ng-container *ngIf="results$ | async as results; else loading">
         <div class="results">
-          <app-results [searchResults]="results"></app-results>
+          <app-results [toLocation]="toLocation" [fromLocation]="fromLocation" [searchResults]="results"></app-results>
         </div>
       </ng-container>
     </ng-container>
