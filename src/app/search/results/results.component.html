@@ -1,4 +1,4 @@
-<h3 class="display-4 title">From {{searchResults.fromLocation}} to {{searchResults.toLocation}}</h3>
+<h3 class="display-4 title">From {{fromLocation}} to {{toLocation}}</h3>
 <ng-container *ngFor="let result of searchResults.results">
   <app-result [result]="result" [selectedRoute]="result.title === selectedRouteTitle" (selected)="selectRoute(result.title)"></app-result>
 </ng-container>

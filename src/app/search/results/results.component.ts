@@ -10,13 +10,16 @@ import { SearchResult, SearchResults } from '../search-result.model';
   styleUrls: ['./results.component.scss']
 })
 export class ResultsComponent implements OnInit {
-  @Input() public searchResults: SearchResults;
+  @Input()
+  public searchResults: SearchResults;
+  @Input()
+  public toLocation: string;
+  @Input()
+  public fromLocation: string;
   public selectedRouteTitle: string;
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
   public selectRoute(title: string) {
     this.selectedRouteTitle = title;
   }
-
 }
